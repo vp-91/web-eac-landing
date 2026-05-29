@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Especialista en Operaciones y Gestión Aeroportuaria | EAC Barcelona</title>
+    <meta name="description" content="Fórmate como Especialista en Operaciones y Gestión Aeroportuaria. 135 horas online. Diploma acreditativo EAC. Alta empleabilidad en aeropuertos AENA.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ─── TOKENS ─── */
+        :root {
+            --red:   #C41230;
+            --red-d: #a50e28;
+            --black: #0A0A0A;
+            --white: #FFFFFF;
+            --f:     'Roboto', sans-serif;
+        }
+
+        /* ─── RESET ─── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body { font-family: var(--f); background: var(--white); color: var(--black); overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; }
+        img { max-width: 100%; display: block; }
+        button { font-family: var(--f); }
+
+        /* ─── NAVBAR ─── */
+        .nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+            background: var(--black);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5vw; height: 62px;
+        }
+        .nav-brand {
+            display: flex; align-items: center; gap: 10px;
+            color: var(--white); font-size: 1rem; font-weight: 700; letter-spacing: 0.04em;
+        }
+        .nav-brand svg { width: 28px; height: 28px; fill: var(--red); flex-shrink: 0; }
+        .nav-phone {
+            color: var(--white); font-size: 0.95rem; font-weight: 600;
+            letter-spacing: 0.05em; display: flex; align-items: center; gap: 8px;
+        }
+        .nav-phone svg { width: 16px; height: 16px; stroke: var(--red); fill: none; stroke-width: 2; }
+        .nav-cta {
+            background: var(--red); color: var(--white);
+            font-size: 0.85rem; font-weight: 800; letter-spacing: 0.1em;
+            text-transform: uppercase; padding: 10px 22px;
+            transition: background .2s;
+        }
+        .nav-cta:hover { background: var(--red-d); }
+
+        /* ─── HERO ─── */
+        .hero {
+            position: relative; height: 100vh; min-height: 620px;
+            display: flex; align-items: center; justify-content: flex-end;
+            padding: 0 6vw; padding-top: 62px; overflow: hidden;
+        }
+        .hero-bg {
+            position: absolute; inset: 0;
+            background: url('https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=1800&q=80') center/cover no-repeat;
+            filter: grayscale(100%);
+        }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(100deg, rgba(0,0,0,.05) 30%, rgba(0,0,0,.6) 100%);
+        }
+        .hero-body {
+            position: relative; z-index: 2;
+            max-width: 680px; text-align: right;
+        }
+        .hero-title {
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-weight: 300; color: var(--white);
+            text-transform: uppercase; line-height: 1;
+            letter-spacing: .01em;
+        }
+        .hero-title .bold { font-weight: 500; display: block; }
+        .hero-btn {
+            display: inline-flex; align-items: center; gap: 14px;
+            background: var(--red); color: var(--white);
+            font-size: 1.05rem; font-weight: 800; letter-spacing: .1em;
+            text-transform: uppercase; border: none; cursor: pointer;
+            padding: 20px 36px; margin-top: 32px;
+            transition: background .2s;
+        }
+        .hero-btn:hover { background: var(--red-d); }
+        .hero-btn svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+        .hero-strip { position: absolute; bottom: 0; left: 0; right: 0; height: 8px; background: var(--red); }
+
+        /* ─── SECTION BASES ─── */
+        .s-red   { background: var(--red);   color: var(--white); padding: 80px 10vw; }
+        .s-white { background: var(--white); color: var(--black); padding: 80px 10vw; }
+        .s-black { background: var(--black); color: var(--white); padding: 80px 6vw;  }
+
+        /* ─── SECTION TITLE ─── */
+        .s-title {
+            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-weight: 300; text-transform: uppercase;
+            line-height: 1.05; letter-spacing: .01em; margin-bottom: 36px;
+        }
+        .s-title .bold { font-weight: 500; display: block; }
+        .s-title.inline .bold { display: inline; }
+
+        /* ─── INTRO RED ─── */
+        .intro-text {
+            font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+            font-weight: 400; line-height: 1.55; max-width: 920px;
+        }
+        .intro-text strong { font-weight: 800; }
+
+        /* ─── FORM ─── */
+        .form-wrap { max-width: 920px; margin: 0 auto; }
+        .form-wrap .s-title { text-align: center; }
+        .form-sub {
+            text-align: center; font-size: 1.15rem; color: #555;
+            max-width: 680px; margin: 0 auto 48px; line-height: 1.55;
+        }
+        .form-grid {
+            display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+        }
+        .f-full { grid-column: 1/-1; }
+        .f-field { display: flex; flex-direction: column; gap: 6px; }
+        .f-field label {
+            font-size: .8rem; font-weight: 700; letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+        .f-field label .req { color: var(--red); }
+        .f-field input, .f-field textarea, .f-field select {
+            font-family: var(--f); font-size: 1rem;
+            border: 1.5px solid #ddd; padding: 12px 14px;
+            background: #f8f8f8; outline: none;
+            transition: border-color .2s;
+            -webkit-appearance: none;
+        }
+        .f-field input:focus, .f-field textarea:focus { border-color: var(--red); background: #fff; }
+        .f-field textarea { resize: vertical; min-height: 96px; }
+        .f-privacy {
+            grid-column: 1/-1; display: flex; align-items: flex-start; gap: 10px;
+            font-size: .85rem; color: #666;
+        }
+        .f-privacy input { accent-color: var(--red); margin-top: 2px; }
+        .f-privacy a { color: var(--red); text-decoration: underline; }
+        .btn-send {
+            background: var(--red); color: var(--white);
+            font-size: 1.05rem; font-weight: 800; letter-spacing: .1em;
+            text-transform: uppercase; border: none; cursor: pointer;
+            padding: 18px 0; width: 100%; margin-top: 4px;
+            transition: background .2s;
+        }
+        .btn-send:hover { background: var(--red-d); }
+
+        /* ─── TWO COL ─── */
+        .two-col {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 64px; align-items: center;
+        }
+
+        /* ─── CIRCLE IMAGE ─── */
+        .img-circle {
+            width: min(400px, 88vw); aspect-ratio: 1;
+            border-radius: 50%; overflow: hidden; margin: 0 auto;
+        }
+        .img-circle img {
+            width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);
+        }
+
+        /* ─── ACCORDION ─── */
+        .acc-list { list-style: none; margin-top: 20px; }
+        .acc-item { border-bottom: 2px solid var(--red); }
+        .acc-btn {
+            width: 100%; background: none; border: none; cursor: pointer;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 18px 0; color: var(--white);
+            font-size: 1.05rem; font-weight: 700; letter-spacing: .06em;
+            text-transform: uppercase; text-align: left; gap: 12px;
+        }
+        .s-white .acc-btn { color: var(--black); }
+        .acc-arrow {
+            color: var(--red); font-size: 1.1rem; flex-shrink: 0;
+            transition: transform .25s; display: inline-block;
+        }
+        .acc-btn.open .acc-arrow { transform: rotate(180deg); }
+        .acc-body {
+            max-height: 0; overflow: hidden;
+            transition: max-height .35s ease, padding-bottom .35s ease;
+        }
+        .acc-body.open { max-height: 260px; padding-bottom: 16px; }
+        .acc-body p {
+            font-size: .98rem; line-height: 1.65; font-weight: 400;
+            color: rgba(255,255,255,.8);
+        }
+        .s-white .acc-body p { color: rgba(0,0,0,.65); }
+
+        /* ─── DASH LIST ─── */
+        .dash-list { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-top: 8px; }
+        .dash-list li {
+            display: flex; gap: 13px; align-items: flex-start;
+            font-size: 1.05rem; line-height: 1.5;
+        }
+        .dash-list li::before {
+            content: '—'; color: var(--red); font-weight: 900; flex-shrink: 0; margin-top: 1px;
+        }
+
+        /* ─── STATS ─── */
+        .stats {
+            display: grid; grid-template-columns: repeat(3,1fr);
+            border-top: 4px solid var(--red); padding-top: 40px;
+            margin-top: 40px; gap: 20px;
+        }
+        .stat { text-align: center; }
+        .stat-n {
+            font-size: clamp(2.5rem,4vw,4rem); font-weight: 900;
+            color: var(--white); line-height: 1;
+        }
+        .stat-l {
+            font-size: .9rem; font-weight: 700; letter-spacing: .08em;
+            text-transform: uppercase; color: rgba(255,255,255,.75); margin-top: 6px;
+        }
+
+        /* ─── PRICE ─── */
+        .price-row { display: flex; gap: 40px; align-items: flex-end; flex-wrap: wrap; margin-top: 40px; }
+        .price-big { font-size: clamp(3rem,5vw,4.5rem); font-weight: 900; color: var(--white); line-height: 1; }
+        .price-big sup { font-size: .4em; vertical-align: super; font-weight: 400; }
+        .price-note { font-size: .95rem; color: rgba(255,255,255,.8); max-width: 280px; line-height: 1.55; }
+        .price-note strong { color: var(--white); }
+
+        /* ─── BTN OUTLINE ─── */
+        .btn-out {
+            display: inline-flex; align-items: center; gap: 12px;
+            background: transparent; color: var(--white);
+            border: 2px solid var(--white);
+            font-size: .95rem; font-weight: 800; letter-spacing: .1em;
+            text-transform: uppercase; cursor: pointer;
+            padding: 15px 30px; margin-top: 32px;
+            transition: background .2s, color .2s;
+        }
+        .btn-out:hover { background: var(--white); color: var(--black); }
+        .s-white .btn-out { color: var(--black); border-color: var(--black); }
+        .s-white .btn-out:hover { background: var(--black); color: var(--white); }
+
+        /* ─── CONTACT BAR ─── */
+        .cbar {
+            background: var(--red); color: var(--white);
+            display: grid; grid-template-columns: repeat(3,1fr);
+            padding: 40px 8vw; gap: 24px;
+        }
+        .cbar-item { display: flex; align-items: center; gap: 14px; font-size: .92rem; line-height: 1.5; }
+        .cbar-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0; opacity: .9; }
+
+        /* ─── FOOTER ─── */
+        .footer { background: var(--black); color: var(--white); padding: 60px 8vw 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+        .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: .04em; margin-bottom: 14px; }
+        .footer-copy { font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.65; }
+        .footer-h { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
+        .footer-ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+        .footer-ul a { font-size: .88rem; color: rgba(255,255,255,.65); transition: color .2s; }
+        .footer-ul a:hover { color: var(--white); }
+        .socials { display: flex; gap: 12px; margin-top: 20px; }
+        .soc {
+            width: 34px; height: 34px; border-radius: 50%;
+            border: 1.5px solid var(--red);
+            display: flex; align-items: center; justify-content: center;
+            font-size: .75rem; font-weight: 800; color: var(--white);
+            transition: background .2s;
+        }
+        .soc:hover { background: var(--red); }
+        .footer-btm {
+            border-top: 1px solid rgba(255,255,255,.1); padding-top: 22px;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 10px; font-size: .78rem; color: rgba(255,255,255,.35);
+        }
+        .footer-btm a { color: rgba(255,255,255,.35); }
+        .footer-btm a:hover { color: var(--white); }
+        .footer-btm-links { display: flex; gap: 18px; flex-wrap: wrap; }
+
+        /* ─── MOBILE STICKY CTA ─── */
+        .mobile-cta {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
+            background: var(--red); color: var(--white); text-align: center;
+            padding: 16px; font-size: .95rem; font-weight: 800; letter-spacing: .1em;
+            text-transform: uppercase; cursor: pointer;
+        }
+
+        /* ─── RESPONSIVE ─── */
+        @media (max-width: 960px) {
+            .nav-phone { display: none; }
+            .two-col { grid-template-columns: 1fr; gap: 40px; }
+            .img-circle { width: min(300px, 75vw); }
+            .form-grid { grid-template-columns: 1fr; }
+            .f-full { grid-column: 1; }
+            .f-privacy { grid-column: 1; }
+            .stats { grid-template-columns: 1fr 1fr; }
+            .cbar { grid-template-columns: 1fr; padding: 40px 6vw; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .hero-body { text-align: left; max-width: 100%; }
+            .hero { justify-content: flex-start; }
+            .s-red, .s-white, .s-black { padding: 60px 6vw; }
+            .mobile-cta { display: block; }
+            body { padding-bottom: 56px; }
+        }
+        @media (max-width: 540px) {
+            .stats { grid-template-columns: 1fr; }
+            .hero-title { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+            .price-row { flex-direction: column; gap: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-brand">
+        <img src="Logo-EscolaAeronautica-web.webp" alt="Escola Aeronàutica de Catalunya" style="height:36px;width:auto;">
+    </div>
+    <a href="tel:+34936671372" class="nav-phone">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10a16 16 0 006.05 6.05l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        +34 936 671 372
+    </a>
+    <a href="#formulario" class="nav-cta">Contacto</a>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-body">
+        <h1 class="hero-title">
+            Especialista en
+            <span class="bold">Operaciones</span>
+            <span class="bold">y Gestión</span>
+            Aeroportuaria
+        </h1>
+        <a href="#formulario" class="hero-btn">
+            Pide más información
+            <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+    </div>
+    <div class="hero-strip"></div>
+</section>
+
+
+<!-- INTRO RED -->
+<section class="s-red">
+    <p class="intro-text">
+        ¿Alguna vez te has preguntado cómo se coordina la salida de un vuelo en menos de 45 minutos?
+        <strong> Detrás de cada despegue hay un experto en operaciones.</strong>
+        Este curso integral de 135 horas te prepara para dominar la logística, la seguridad
+        y la coordinación en el entorno más dinámico del mundo: el aeropuerto.
+    </p>
+</section>
+
+
+<!-- FORM -->
+<section class="s-white" id="formulario">
+    <div class="form-wrap">
+        <h2 class="s-title inline">¡Un sector lleno de <span class="bold">oportunidades</span> para ti!</h2>
+        <p class="form-sub">
+            Ofrecemos formación online de calidad con instructores especializados en el sector aeroportuario.
+            Una vez superada la formación, la mayoría de nuestros alumnos se incorpora al mercado laboral.
+        </p>
+        <form class="form-grid" onsubmit="handleSubmit(event)">
+            <div class="f-field">
+                <label>Nombre <span class="req">*</span></label>
+                <input type="text" name="nombre" required>
+            </div>
+            <div class="f-field">
+                <label>Correo <span class="req">*</span></label>
+                <input type="email" name="correo" required>
+            </div>
+            <div class="f-field">
+                <label>Teléfono <span class="req">*</span></label>
+                <input type="tel" name="telefono" required>
+            </div>
+            <div class="f-field f-full">
+                <label>¿Te podemos ayudar?</label>
+                <textarea name="mensaje"></textarea>
+            </div>
+            <div class="f-privacy f-full">
+                <input type="checkbox" id="priv" required>
+                <label for="priv">He leído y acepto la <a href="#">política de privacidad</a> del sitio</label>
+            </div>
+            <button type="submit" class="btn-send f-full">Enviar</button>
+        </form>
+    </div>
+</section>
+
+
+<!-- CONTENIDO DEL CURSO (BLACK) -->
+<section class="s-black" id="contenido">
+    <div class="two-col">
+        <div class="img-circle">
+            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&q=80"
+                 alt="Operaciones aeroportuarias" loading="lazy">
+        </div>
+        <div>
+            <h2 class="s-title">
+                Contenido del
+                <span class="bold">Curso de</span>
+                <span class="bold">Gestión</span>
+                Aeroportuaria
+            </h2>
+            <p style="font-size:1rem;line-height:1.65;color:rgba(255,255,255,.75);margin-bottom:20px;">
+                El programa cubre los 8 módulos críticos para trabajar en aeropuertos de la red AENA
+                y compañías internacionales, basado en manuales oficiales de la industria.
+            </p>
+            <ul class="acc-list">
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        Derecho y Legislación Aeronáutica
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Domina el marco jurídico (OACI, IATA, EASA) y las libertades del aire que regulan las operaciones aeroportuarias internacionales.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        Infraestructura Aeroportuaria
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Conoce el Lado Tierra, Lado Aire y los sistemas de tratamiento de equipajes (SATE). Entiende cómo funciona un aeropuerto por dentro.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        Sistemas de Asignación de Medios
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Domina el software de gestión SADAMA y CONOPER para el control de recursos en tiempo real durante las operaciones.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        Comunicaciones Aeronáuticas
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Especialízate en el alfabeto fonético y la mensajería técnica (SITA, AFTN, ARINC) usada en operaciones aeroportuarias reales.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        Coordinación de Vuelos
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>El "cerebro" de la operación: Hoja de Carga, centrado de aeronaves y gestión de retrasos para garantizar la puntualidad de cada vuelo.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        Procedimientos de Handling y Cliente
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Protocolos de embarque, facturación, atención a PMR (personas con movilidad reducida) y gestión de mercancías peligrosas.</p>
+                    </div>
+                </li>
+            </ul>
+            <a href="#formulario" class="btn-out">Contáctanos →</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- QUÉ INCLUYE (WHITE) -->
+<section class="s-white" id="incluye">
+    <div class="two-col">
+        <div>
+            <h2 class="s-title">
+                ¿Qué incluye el
+                <span class="bold">Curso de</span>
+                <span class="bold">Operaciones</span>
+                Aeroportuarias?
+            </h2>
+            <ul class="dash-list">
+                <li>135 horas de formación 100% online, a tu ritmo.</li>
+                <li>8 módulos basados en manuales oficiales de la industria (OACI, IATA, EASA).</li>
+                <li>Diploma acreditativo emitido por EAC.</li>
+                <li>Acceso a plataforma de aprendizaje desde el primer día.</li>
+                <li>Tutorías personalizadas con instructores especializados.</li>
+                <li>Orientación laboral y preparación para entrevistas del sector.</li>
+                <li>Doble perfil profesional: atención al pasajero + coordinación técnica.</li>
+                <li>Incluido sin coste adicional en la matrícula del Curso TCP.</li>
+            </ul>
+        </div>
+        <div class="img-circle">
+            <img src="https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=700&q=80"
+                 alt="Formación aeroportuaria" loading="lazy">
+        </div>
+    </div>
+</section>
+
+
+<!-- DURACIÓN RED -->
+<section class="s-red" id="duracion">
+    <h2 class="s-title">
+        Duración del <span class="bold">Curso</span>
+    </h2>
+    <p style="font-size:1.05rem;line-height:1.7;max-width:800px;margin-bottom:0;">
+        <strong>Formación 100% online de 135 horas.</strong> Complétala a tu ritmo, compatible con
+        tu vida laboral y personal. Basada en los estándares oficiales de la industria aeroportuaria.
+        Con acceso inmediato desde el día 1.
+    </p>
+
+    <div class="stats">
+        <div class="stat">
+            <div class="stat-n">135</div>
+            <div class="stat-l">Horas de formación</div>
+        </div>
+        <div class="stat">
+            <div class="stat-n">8</div>
+            <div class="stat-l">Módulos especializados</div>
+        </div>
+        <div class="stat">
+            <div class="stat-n">100%</div>
+            <div class="stat-l">Online y flexible</div>
+        </div>
+    </div>
+
+    <h2 class="s-title" style="margin-top:64px;">
+        Titulaciones <span class="bold">Obtenidas</span>
+    </h2>
+    <ul class="acc-list" style="max-width:700px;">
+        <li class="acc-item">
+            <button class="acc-btn" onclick="acc(this)">
+                Diploma de Especialista en Operaciones Aeroportuarias
+                <span class="acc-arrow">↓</span>
+            </button>
+            <div class="acc-body">
+                <p>Diploma acreditativo emitido por la Escola Aeronàutica de Catalunya (EAC), reconocido en el sector del handling y la gestión aeroportuaria.</p>
+            </div>
+        </li>
+    </ul>
+
+    <div class="price-row">
+        <div class="price-big"><sup>€</sup>895</div>
+        <div class="price-note">
+            <strong>Incluido sin coste adicional</strong> en la matrícula del Curso de TCP (Tripulante de Cabina de Pasajeros).
+            Precio independiente: 895 €.
+        </div>
+    </div>
+</section>
+
+
+<!-- SALIDAS PROFESIONALES (WHITE) -->
+<section class="s-white" id="salidas">
+    <div class="two-col">
+        <div class="img-circle">
+            <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=700&q=80"
+                 alt="Aeropuerto pista" loading="lazy">
+        </div>
+        <div>
+            <h2 class="s-title">
+                Salidas
+                <span class="bold">Profesionales</span>
+                del Curso
+            </h2>
+            <p style="font-size:1rem;line-height:1.65;color:rgba(0,0,0,.65);margin-bottom:16px;">
+                Al finalizar estarás preparado para ocupar puestos de alta demanda en aeropuertos nacionales e internacionales:
+            </p>
+            <ul class="acc-list">
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)" style="color:var(--black);">
+                        Agente de Facturación y Embarque
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Gestión de pasajeros en mostradores y puertas de embarque. Puesto de alta demanda en empresas de handling aeroportuario.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)" style="color:var(--black);">
+                        Coordinador de Pista — Turnaround Coordinator
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Responsable de la coordinación del vuelo en tierra, garantizando la puntualidad en la salida. Uno de los perfiles más demandados.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)" style="color:var(--black);">
+                        Técnico de Operaciones en Consola
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Control y gestión de operaciones desde sala de operaciones con software especializado (SADAMA, CONOPER).</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)" style="color:var(--black);">
+                        Agente de Rampa y Gestión de Equipajes
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Supervisión de carga, descarga y tratamiento del equipaje. Clave en las operaciones de ground handling.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)" style="color:var(--black);">
+                        Personal de Atención al Cliente y PMR
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Atención especializada a pasajeros con movilidad reducida (PMR) y gestión de incidencias en sala de embarque.</p>
+                    </div>
+                </li>
+            </ul>
+            <a href="#formulario" class="btn-out">Contáctanos →</a>
+        </div>
+    </div>
+</section>
+
+
+<!-- FAQ (BLACK) -->
+<section class="s-black" id="faq">
+    <div class="two-col">
+        <div>
+            <h2 class="s-title">
+                Preguntas
+                Frecuentes
+                Sobre el
+                <span class="bold">Curso</span>
+            </h2>
+        </div>
+        <div>
+            <ul class="acc-list">
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        ¿Qué es un Especialista en Operaciones Aeroportuarias?
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Es el profesional que coordina y supervisa las actividades en tierra del aeropuerto: facturación, embarque, coordinación de vuelos, rampa y equipajes. Garantiza la eficiencia y seguridad de cada operación.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        ¿Cuánto dura y cómo se realiza el curso?
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>135 horas, 100% online. Accedes a la plataforma cuando quieras, sin horarios fijos. Incluye materiales descargables, vídeos y tutorías personalizadas.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        ¿Necesito conocimientos previos en aviación?
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>No. El programa está diseñado para comenzar desde cero. Si ya tienes experiencia en el sector, avanzarás más rápido, pero no es ningún requisito.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        ¿Qué diploma obtengo al terminar?
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Diploma de Especialista en Operaciones y Gestión Aeroportuaria emitido por EAC (Escola Aeronàutica de Catalunya), reconocido en el sector.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        ¿Está incluido en el Curso TCP?
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Sí. Este curso está incluido sin coste adicional en la matrícula del Curso de Tripulante de Cabina de Pasajeros (TCP) de EAC. Su precio independiente es de 895 €.</p>
+                    </div>
+                </li>
+                <li class="acc-item">
+                    <button class="acc-btn" onclick="acc(this)">
+                        ¿Cómo me inscribo?
+                        <span class="acc-arrow">↓</span>
+                    </button>
+                    <div class="acc-body">
+                        <p>Rellena el formulario de esta página o llámanos al +34 936 671 372. Nuestro equipo te explicará todos los detalles y el proceso de inscripción sin compromiso.</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+
+<!-- CONTACT BAR -->
+<div class="cbar">
+    <div class="cbar-item">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Calle Consell De Cent 489, Bajos, 08013, Barcelona</span>
+    </div>
+    <div class="cbar-item">
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span>info@escolaeronauticadecatalunya.cat</span>
+    </div>
+    <div class="cbar-item">
+        <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10a16 16 0 006.05 6.05l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+        <div><div>+34 936 671 372</div><div>+34 663 957 920</div></div>
+    </div>
+</div>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-grid">
+        <div>
+            <div class="footer-brand">Escola Aeronàutica de Catalunya</div>
+            <p class="footer-copy">Formación aeronáutica de referencia en España. Preparamos profesionales para el sector de la aviación y las operaciones aeroportuarias.</p>
+            <div class="socials">
+                <a href="#" class="soc">f</a>
+                <a href="#" class="soc">in</a>
+                <a href="#" class="soc">ig</a>
+                <a href="#" class="soc">yt</a>
+                <a href="#" class="soc">tk</a>
+            </div>
+        </div>
+        <div>
+            <div class="footer-h">Cursos</div>
+            <ul class="footer-ul">
+                <li><a href="#">Curso TCP / Azafatas</a></li>
+                <li><a href="#">Operaciones Aeroportuarias</a></li>
+                <li><a href="#">Despachador de Vuelo</a></li>
+                <li><a href="#">Aviación Ejecutiva</a></li>
+            </ul>
+        </div>
+        <div>
+            <div class="footer-h">Información</div>
+            <ul class="footer-ul">
+                <li><a href="#">La Escuela</a></li>
+                <li><a href="#">Preguntas Frecuentes</a></li>
+                <li><a href="#">Política de Privacidad</a></li>
+                <li><a href="#">Aviso Legal</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-btm">
+        <span>© 2025, Escola Aeronàutica de Catalunya S.L. Todos los derechos reservados.</span>
+        <div class="footer-btm-links">
+            <a href="#">Política de cookies</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Aviso legal</a>
+            <a href="#">Accesibilidad</a>
+        </div>
+    </div>
+</footer>
+
+
+<!-- MOBILE STICKY CTA -->
+<a href="#formulario" class="mobile-cta">Pide información ahora →</a>
+
+
+<script>
+function acc(btn) {
+    const body = btn.nextElementSibling;
+    const isOpen = btn.classList.contains('open');
+    const list = btn.closest('ul');
+    list.querySelectorAll('.acc-btn.open').forEach(b => {
+        b.classList.remove('open');
+        b.nextElementSibling.classList.remove('open');
+    });
+    if (!isOpen) {
+        btn.classList.add('open');
+        body.classList.add('open');
+    }
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('.btn-send');
+    btn.textContent = '✓ Mensaje enviado';
+    btn.style.background = '#1a7a3a';
+    btn.disabled = true;
+}
+</script>
+
+</body>
+</html>
