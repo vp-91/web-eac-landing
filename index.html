@@ -70,12 +70,12 @@
         }
         .hero-body {
             position: relative; z-index: 2;
-            max-width: 680px; text-align: right;
+            max-width: 760px; text-align: right; overflow: hidden;
         }
         .hero-title {
-            font-size: clamp(3rem, 7vw, 6.5rem);
+            font-size: clamp(2.5rem, 4vw, 4.8rem);
             font-weight: 300; color: var(--white);
-            text-transform: uppercase; line-height: 1;
+            text-transform: uppercase; line-height: 1.1;
             letter-spacing: .01em;
         }
         .hero-title .bold { font-weight: 500; display: block; }
@@ -98,11 +98,12 @@
 
         /* ─── SECTION TITLE ─── */
         .s-title {
-            font-size: clamp(2.2rem, 4vw, 4rem);
+            font-size: clamp(1.8rem, 3.2vw, 3.5rem);
             font-weight: 300; text-transform: uppercase;
-            line-height: 1.05; letter-spacing: .01em; margin-bottom: 36px;
+            line-height: 1.1; letter-spacing: .01em; margin-bottom: 36px;
         }
-        .s-title .bold { font-weight: 500; display: block; }
+        /* bold = inline everywhere excepto hero (que lo sobreescribe a block) */
+        .s-title .bold { font-weight: 500; display: inline; }
         .s-title.inline .bold { display: inline; }
 
         /* ─── INTRO RED ─── */
@@ -305,7 +306,7 @@
         }
         @media (max-width: 540px) {
             .stats { grid-template-columns: 1fr; }
-            .hero-title { font-size: clamp(2.8rem, 10vw, 4.5rem); }
+            .hero-title { font-size: clamp(2.2rem, 9vw, 3.5rem); }
             .price-row { flex-direction: column; gap: 16px; }
         }
     </style>
