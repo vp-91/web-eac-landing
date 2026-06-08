@@ -249,29 +249,26 @@
         .cbar-item svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 1.8; flex-shrink: 0; opacity: .9; }
 
         /* ─── FOOTER ─── */
-        .footer { background: var(--black); color: var(--white); padding: 60px 8vw 30px; }
-        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
-        .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: .04em; margin-bottom: 14px; }
-        .footer-copy { font-size: .85rem; color: rgba(255,255,255,.45); line-height: 1.65; }
-        .footer-h { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 14px; }
-        .footer-ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-        .footer-ul a { font-size: .88rem; color: rgba(255,255,255,.65); transition: color .2s; }
-        .footer-ul a:hover { color: var(--white); }
-        .socials { display: flex; gap: 12px; margin-top: 20px; }
+        .footer { background: var(--black); color: var(--white); padding: 40px 8vw 28px; }
+        .footer-main { display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 32px; flex-wrap: wrap; }
+        .footer-brand { font-size: 1rem; font-weight: 700; letter-spacing: .04em; margin-bottom: 8px; }
+        .footer-copy { font-size: .83rem; color: rgba(255,255,255,.4); line-height: 1.6; margin-bottom: 6px; }
+        .footer-addr { font-size: .83rem; color: rgba(255,255,255,.45); }
+        .socials { display: flex; gap: 10px; margin-top: 18px; }
         .soc {
-            width: 34px; height: 34px; border-radius: 50%;
-            border: 1.5px solid var(--red);
+            width: 32px; height: 32px; border-radius: 50%;
+            border: 1.5px solid rgba(255,255,255,.2);
             display: flex; align-items: center; justify-content: center;
-            font-size: .75rem; font-weight: 800; color: var(--white);
-            transition: background .2s;
+            font-size: .72rem; font-weight: 800; color: rgba(255,255,255,.5);
+            transition: border-color .2s, color .2s;
         }
-        .soc:hover { background: var(--red); }
+        .soc:hover { border-color: var(--red); color: var(--white); }
         .footer-btm {
-            border-top: 1px solid rgba(255,255,255,.1); padding-top: 22px;
+            border-top: 1px solid rgba(255,255,255,.08); padding-top: 20px;
             display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 10px; font-size: .78rem; color: rgba(255,255,255,.35);
+            flex-wrap: wrap; gap: 10px; font-size: .76rem; color: rgba(255,255,255,.3);
         }
-        .footer-btm a { color: rgba(255,255,255,.35); }
+        .footer-btm a { color: rgba(255,255,255,.3); transition: color .2s; }
         .footer-btm a:hover { color: var(--white); }
         .footer-btm-links { display: flex; gap: 18px; flex-wrap: wrap; }
 
@@ -293,7 +290,7 @@
             .f-privacy { grid-column: 1; }
             .stats { grid-template-columns: 1fr 1fr; }
             .cbar { grid-template-columns: 1fr; padding: 40px 6vw; }
-            .footer-grid { grid-template-columns: 1fr; }
+            .footer-main { flex-direction: column; }
             .hero-body { text-align: left; max-width: 100%; }
             .hero { justify-content: flex-start; }
             .s-red, .s-white, .s-black { padding: 60px 6vw; }
@@ -709,44 +706,26 @@
 
 <!-- FOOTER -->
 <footer class="footer">
-    <div class="footer-grid">
+    <div class="footer-main">
         <div>
             <div class="footer-brand">Escola Aeronàutica de Catalunya</div>
-            <p class="footer-copy">Formación aeronáutica de referencia en España. Preparamos profesionales para el sector de la aviación y las operaciones aeroportuarias.</p>
+            <p class="footer-copy">Formación aeronáutica de referencia en España.</p>
+            <p class="footer-addr">C/ Consell de Cent 489, 08013 Barcelona</p>
             <div class="socials">
-                <a href="#" class="soc">f</a>
-                <a href="#" class="soc">in</a>
-                <a href="#" class="soc">ig</a>
-                <a href="#" class="soc">yt</a>
-                <a href="#" class="soc">tk</a>
+                <a href="https://www.facebook.com/escolaeronauticadecatalunya" target="_blank" rel="noopener" class="soc">f</a>
+                <a href="https://www.linkedin.com/company/escola-aeronautica-de-catalunya" target="_blank" rel="noopener" class="soc">in</a>
+                <a href="https://www.instagram.com/escolaeronauticadecatalunya" target="_blank" rel="noopener" class="soc">ig</a>
+                <a href="https://www.youtube.com/@escolaeronauticadecatalunya" target="_blank" rel="noopener" class="soc">yt</a>
+                <a href="https://www.tiktok.com/@escolaeronautica" target="_blank" rel="noopener" class="soc">tk</a>
             </div>
-        </div>
-        <div>
-            <div class="footer-h">Cursos</div>
-            <ul class="footer-ul">
-                <li><a href="#">Curso TCP / Azafatas</a></li>
-                <li><a href="#">Operaciones Aeroportuarias</a></li>
-                <li><a href="#">Despachador de Vuelo</a></li>
-                <li><a href="#">Aviación Ejecutiva</a></li>
-            </ul>
-        </div>
-        <div>
-            <div class="footer-h">Información</div>
-            <ul class="footer-ul">
-                <li><a href="#">La Escuela</a></li>
-                <li><a href="#">Preguntas Frecuentes</a></li>
-                <li><a href="#">Política de Privacidad</a></li>
-                <li><a href="#">Aviso Legal</a></li>
-            </ul>
         </div>
     </div>
     <div class="footer-btm">
         <span>© 2025, Escola Aeronàutica de Catalunya S.L. Todos los derechos reservados.</span>
         <div class="footer-btm-links">
-            <a href="#">Política de cookies</a>
-            <a href="#">Política de privacidad</a>
-            <a href="#">Aviso legal</a>
-            <a href="#">Accesibilidad</a>
+            <a href="politica-de-privacidad.html">Política de privacidad</a>
+            <a href="politica-de-cookies.html">Política de cookies</a>
+            <a href="aviso-legal.html">Aviso legal</a>
         </div>
     </div>
 </footer>
