@@ -115,8 +115,9 @@
         .intro-text strong { font-weight: 800; }
 
         /* ─── FORM ─── */
-        .form-wrap { max-width: 920px; margin: 0 auto; }
+        .form-wrap { max-width: 680px; margin: 0 auto; }
         .form-wrap .s-title { text-align: center; }
+        .lc-inline-frame { width: 100%; border: none; min-height: 500px; display: block; margin-top: 24px; }
         .form-sub {
             text-align: center; font-size: 1.15rem; color: #555;
             max-width: 680px; margin: 0 auto 48px; line-height: 1.55;
@@ -263,6 +264,41 @@
         .footer-btm a:hover { color: var(--white); }
         .footer-btm-links { display: flex; gap: 18px; flex-wrap: wrap; }
 
+        /* ─── MODAL ─── */
+        .modal-overlay {
+            display: none; position: fixed; inset: 0;
+            background: rgba(0,0,0,.75); z-index: 2000;
+            align-items: center; justify-content: center; padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+        .modal-box {
+            background: var(--white); width: min(560px, 100%);
+            max-height: 90vh; border-radius: 2px;
+            overflow-y: auto; position: relative;
+            padding: 48px 40px 36px;
+        }
+        .modal-close {
+            position: absolute; top: 14px; right: 16px;
+            background: none; border: none; font-size: 1.4rem;
+            cursor: pointer; color: rgba(0,0,0,.4); line-height: 1;
+            transition: color .2s;
+        }
+        .modal-close:hover { color: var(--black); }
+        .modal-title {
+            font-size: 1.1rem; font-weight: 700; text-transform: uppercase;
+            letter-spacing: .08em; margin-bottom: 6px;
+        }
+        .modal-sub {
+            font-size: .85rem; color: rgba(0,0,0,.5); margin-bottom: 28px;
+        }
+        .modal-iframe {
+            width: 100%; border: none; min-height: 460px; display: block;
+        }
+        @media (max-width: 600px) {
+            .modal-box { padding: 40px 20px 28px; }
+            .modal-iframe { min-height: 520px; }
+        }
+
         /* ─── MOBILE STICKY CTA ─── */
         .mobile-cta {
             display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150;
@@ -305,7 +341,7 @@
         <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 13.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012 2.84h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 10a16 16 0 006.05 6.05l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
         +34 936 671 372
     </span>
-    <a href="#formulario" class="nav-cta">Contacto</a>
+    <a href="#" onclick="openModal();return false;" class="nav-cta">Contacto</a>
 </nav>
 
 
@@ -320,7 +356,7 @@
             <span class="bold">Operaciones</span>
             Aeroportuarias
         </h1>
-        <a href="#formulario" class="hero-btn">
+        <a href="#" onclick="openModal();return false;" class="hero-btn">
             Pide más información
             <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
@@ -348,29 +384,23 @@
             Ofrecemos formación online de calidad con instructores especializados en el sector aeroportuario.
             Una vez superada la formación, la mayoría de nuestros alumnos se incorpora al mercado laboral.
         </p>
-        <form class="form-grid" onsubmit="handleSubmit(event)">
-            <div class="f-field">
-                <label>Nombre <span class="req">*</span></label>
-                <input type="text" name="nombre" required>
-            </div>
-            <div class="f-field">
-                <label>Correo <span class="req">*</span></label>
-                <input type="email" name="correo" required>
-            </div>
-            <div class="f-field">
-                <label>Teléfono <span class="req">*</span></label>
-                <input type="tel" name="telefono" required>
-            </div>
-            <div class="f-field f-full">
-                <label>¿Te podemos ayudar?</label>
-                <textarea name="mensaje"></textarea>
-            </div>
-            <div class="f-privacy f-full">
-                <input type="checkbox" id="priv" required>
-                <label for="priv">He leído y acepto la <a href="#">política de privacidad</a> del sitio</label>
-            </div>
-            <button type="submit" class="btn-send f-full">Enviar</button>
-        </form>
+        <iframe
+            src="https://api.leadconnectorhq.com/widget/form/yF7IAyE8S29twTCZUIU9"
+            class="lc-inline-frame"
+            id="inline-yF7IAyE8S29twTCZUIU9"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Operaciones aeroportuarias"
+            data-height="undefined"
+            data-layout-iframe-id="inline-yF7IAyE8S29twTCZUIU9"
+            data-form-id="yF7IAyE8S29twTCZUIU9"
+            title="Operaciones aeroportuarias"
+        ></iframe>
     </div>
 </section>
 
@@ -379,15 +409,15 @@
 <section class="s-black" id="contenido">
     <div class="two-col">
         <div class="img-circle">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=700&q=80"
+            <img src="https://images.unsplash.com/photo-1775049874025-67e133a9deee?w=700&q=80"
                  alt="Operaciones aeroportuarias" loading="lazy">
         </div>
         <div>
             <h2 class="s-title">
                 Contenido del
                 <span class="bold">Curso de</span>
-                <span class="bold">Gestión</span>
-                Aeroportuaria
+                <span class="bold">Azafata</span>
+                de Tierra
             </h2>
             <p style="font-size:1rem;line-height:1.65;color:rgba(255,255,255,.75);margin-bottom:20px;">
                 El programa cubre los 8 módulos críticos para trabajar en aeropuertos de la red AENA
@@ -449,7 +479,7 @@
                     </div>
                 </li>
             </ul>
-            <a href="#formulario" class="btn-out">Contáctanos →</a>
+            <a href="#" onclick="openModal();return false;" class="btn-out">Contáctanos →</a>
         </div>
     </div>
 </section>
@@ -528,7 +558,7 @@
             formando como Tripulante de Cabina de Pasajeros con EAC, obtienes esta especialización
             sin coste adicional. Dos titulaciones, una sola matrícula.
         </p>
-        <a href="#formulario" class="btn-out" style="margin-top:24px;">
+        <a href="#" onclick="openModal();return false;" class="btn-out" style="margin-top:24px;">
             Solicitar información <svg viewBox="0 0 24 24" width="16" height="16"><polyline points="9 18 15 12 9 6"/></svg>
         </a>
     </div>
@@ -599,7 +629,7 @@
                     </div>
                 </li>
             </ul>
-            <a href="#formulario" class="btn-out">Contáctanos →</a>
+            <a href="#" onclick="openModal();return false;" class="btn-out">Contáctanos →</a>
         </div>
     </div>
 </section>
@@ -715,8 +745,34 @@
 </footer>
 
 
+<!-- MODAL -->
+<div id="modal" class="modal-overlay" onclick="closeModalOverlay(event)">
+    <div class="modal-box">
+        <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">✕</button>
+        <p class="modal-title">Solicita información</p>
+        <p class="modal-sub">Te contactamos sin compromiso en menos de 24h.</p>
+        <iframe
+            src="https://api.leadconnectorhq.com/widget/form/yF7IAyE8S29twTCZUIU9"
+            class="modal-iframe"
+            id="modal-yF7IAyE8S29twTCZUIU9"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Operaciones aeroportuarias"
+            data-height="undefined"
+            data-layout-iframe-id="modal-yF7IAyE8S29twTCZUIU9"
+            data-form-id="yF7IAyE8S29twTCZUIU9"
+            title="Operaciones aeroportuarias"
+        ></iframe>
+    </div>
+</div>
+
 <!-- MOBILE STICKY CTA -->
-<a href="#formulario" class="mobile-cta">Pide información ahora →</a>
+<a href="#" onclick="openModal();return false;" class="mobile-cta">Pide información ahora →</a>
 
 
 <script>
@@ -734,14 +790,23 @@ function acc(btn) {
     }
 }
 
-function handleSubmit(e) {
-    e.preventDefault();
-    const btn = e.target.querySelector('.btn-send');
-    btn.textContent = '✓ Mensaje enviado';
-    btn.style.background = '#1a7a3a';
-    btn.disabled = true;
+function openModal() {
+    document.getElementById('modal').classList.add('active');
+    document.body.style.overflow = 'hidden';
 }
+function closeModal() {
+    document.getElementById('modal').classList.remove('active');
+    document.body.style.overflow = '';
+}
+function closeModalOverlay(e) {
+    if (e.target === document.getElementById('modal')) closeModal();
+}
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+});
 </script>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
 
 </body>
 </html>
